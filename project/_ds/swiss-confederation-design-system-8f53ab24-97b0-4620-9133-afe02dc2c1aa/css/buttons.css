@@ -1,0 +1,93 @@
+/* BUTTONS, TAGS, BADGES — from css/components/btn.postcss, tag-item.postcss, badge.postcss */
+
+.btn{display:inline-flex;align-items:center;padding:0 1rem;line-height:var(--leading-tight);text-decoration:none;border-radius:var(--radius-sm);border:1px solid transparent;background:none;font-family:var(--font-regular);cursor:pointer;min-height:var(--control-min-height);font-size:var(--step-base)}
+.btn:focus{outline:none}
+.btn:disabled{cursor:not-allowed}
+.btn__text{padding:0.5rem 0;text-align:left;overflow-wrap:anywhere}
+.btn__text-centered{padding:0.5rem 0;text-align:center;width:100%;overflow-wrap:anywhere}
+.btn__icon{width:1.4em;height:100%;flex-shrink:0;transition:transform var(--duration-fast) var(--ease-default)}
+
+.btn--outline{color:var(--color-primary-600);border-color:var(--color-primary-600);transition:var(--transition-colors)}
+.btn--outline:hover{color:var(--color-primary-700);border-color:var(--color-primary-700)}
+.btn--outline:disabled{color:var(--color-secondary-300);border-color:var(--color-secondary-200)}
+
+.btn--filled{color:var(--color-white);font-family:var(--font-bold);background:var(--color-secondary-500);border-color:var(--color-secondary-500);transition:var(--transition-colors)}
+.btn--filled:hover{color:var(--color-secondary-100)}
+.btn--filled:disabled{color:var(--color-white);background:var(--color-secondary-200);border-color:var(--color-secondary-200)}
+
+.btn--bare{padding:0 0.5rem;color:var(--color-secondary-800);transition:var(--transition-colors)}
+.btn--bare:hover{color:var(--color-primary-600)}
+.btn--bare:disabled{color:var(--color-secondary-300);background:transparent}
+
+.btn--link{padding:0 0.5rem 0 0;color:var(--color-primary-600);transition:var(--transition-colors)}
+.btn--link:hover{color:var(--color-primary-700)}
+.btn--link .btn__icon{width:2rem}
+.btn--link:disabled{color:var(--color-secondary-300)}
+
+.btn--link-negative{padding:0 0.5rem 0 0;color:var(--color-white);text-decoration:underline;text-underline-offset:var(--underline-offset)}
+.btn--link-negative:hover{color:var(--color-secondary-100)}
+.btn--link-negative .btn__icon{width:2rem}
+
+.btn--outline-negative{color:var(--color-white);font-family:var(--font-bold);background:var(--color-secondary-500);border-color:var(--color-white);transition:var(--transition-colors)}
+.btn--outline-negative:hover{color:var(--color-secondary-100);border-color:var(--color-secondary-100)}
+.btn--outline-negative:disabled{color:var(--color-secondary-200);border-color:var(--color-secondary-300);background:transparent}
+
+.btn--bare-negative{color:var(--color-white)}
+.btn--bare-negative:hover{color:var(--color-secondary-100)}
+.btn--bare-negative:disabled{color:var(--color-secondary-200)}
+
+.btn--base{min-height:var(--control-min-height);font-size:var(--step-base)}
+.btn--sm{min-height:var(--control-min-height-sm);font-size:var(--step-sm)}
+.btn--lg{min-height:var(--control-min-height-lg);font-size:var(--step-lg)}
+@media (min-width:1280px){.btn,.btn--base{min-height:var(--control-min-height-xl)}.btn--sm{min-height:40px}.btn--lg{min-height:52px}}
+
+.btn--icon-none .btn__icon{display:none}
+.btn--icon-only{padding:0 0.625em}
+.btn--icon-only .btn__text{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.btn--icon-left .btn__icon{position:relative;margin-right:0.2em;right:0.1em}
+.btn--icon-right{flex-direction:row-reverse}
+.btn--icon-right .btn__icon{position:relative;margin-left:0.2em;left:0.1em}
+.btn--icon-180 .btn__icon{transform:rotate(180deg)}
+.btn--full-width{width:100%}
+
+/* TAG ITEM — pill-shaped filter chip, 44px tall like every other control */
+.tag-item{display:inline-flex;align-items:center;margin-right:0.75rem;text-decoration:none;color:inherit;border:0;background:none;padding:0;cursor:pointer;min-height:var(--control-min-height);font-size:var(--step-base);font-family:var(--font-regular)}
+.tag-item__inner{display:inline-flex;align-items:center;padding:0 1rem;line-height:var(--leading-tight);border-radius:var(--radius-full);background:var(--color-gray-200);transition:var(--transition-colors)}
+.tag-item__text{display:inline-block;padding:0.375rem 0;text-align:left}
+.tag-item:hover .tag-item__inner{background:var(--color-gray-300)}
+.tag-item--sm{font-size:var(--step-sm)}
+.tag-item--primary .tag-item__inner{color:var(--color-white);background:var(--color-gray-800)}
+.tag-item--primary:hover .tag-item__inner{background:var(--color-black)}
+.tag-item--active{pointer-events:none}
+.tag-item--active .tag-item__inner{color:var(--color-white);background:var(--color-gray-800)}
+.tag-item__icon{width:1.5em;position:relative;left:0.4em}
+
+/* BADGE — status pill. Never used as a button target; 100% round ends. */
+.badge{display:inline-flex;align-items:center;padding:0.219em 1em;border-radius:var(--radius-full);font-size:var(--step-sm);line-height:1.5;border:0;font-family:var(--font-regular)}
+.badge--base{font-size:var(--step-sm)}
+.badge--sm{font-size:var(--text-xs);line-height:1.35}
+.badge--gray{color:var(--color-gray-800);background:var(--color-secondary-100)}
+.badge--red,.badge--error{color:var(--color-red-800);background:var(--color-red-100)}
+.badge--yellow{color:var(--color-yellow-800);background:var(--color-yellow-100)}
+.badge--orange,.badge--warning{color:var(--color-orange-800);background:var(--color-orange-100)}
+.badge--green,.badge--success{color:var(--color-green-800);background:var(--color-green-100)}
+.badge--blue,.badge--info{color:var(--color-blue-800);background:var(--color-blue-100)}
+.badge--indigo{color:var(--color-indigo-800);background:var(--color-indigo-100)}
+.badge--purple{color:var(--color-purple-800);background:var(--color-purple-100)}
+.badge--pink{color:var(--color-pink-800);background:var(--color-pink-100)}
+.badge--negative{color:var(--color-gray-100);background:var(--color-gray-800)}
+.badge--clickable{cursor:pointer}
+.badge--disabled{opacity:0.4;cursor:default}
+.badge__icon{width:1.5em;position:relative;left:0.4em}
+.badge__icon-left{width:1.5em;position:relative;right:0.4em}
+
+/* BURGER / BACK TO TOP */
+.burger{display:flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border:0;background:none;cursor:pointer;color:var(--text-default)}
+@media (min-width:1024px){.burger{display:none}}
+.back-to-top{display:inline-flex;align-items:center;gap:0.5rem;color:var(--color-primary-600);background:none;border:0;cursor:pointer;padding:0.5rem 0;font-family:var(--font-regular);font-size:var(--step-sm)}
+.back-to-top:hover{color:var(--color-primary-700)}
+
+/* STEP INDICATOR — numbered circle used in accordions and multi-step forms */
+.step__indicator{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:2rem;height:2rem;border-radius:var(--radius-full);background:var(--color-secondary-100);color:var(--text-default);font-size:var(--step-sm)}
+.step__indicator--active{background:var(--color-primary-600);color:var(--color-white)}
+.step__indicator--done{background:var(--color-secondary-600);color:var(--color-white)}

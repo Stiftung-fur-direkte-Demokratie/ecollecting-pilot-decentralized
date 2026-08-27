@@ -1,0 +1,52 @@
+/* NAVIGATION — main nav, meta nav, breadcrumb, pagination, language switcher.
+   From css/navigations/*.postcss and css/sections/breadcrumb.postcss */
+
+.main-navigation{display:flex;width:100%;position:relative;margin-left:-1rem;height:3.5rem}
+@media (min-width:1280px){.main-navigation{height:4rem}}
+.main-navigation ul{display:flex;height:100%;list-style:none;margin:0;padding:0}
+.main-navigation>ul>li>a{display:flex;align-items:center;position:relative;height:100%;padding:0 1rem;line-height:var(--leading-tight);white-space:nowrap;text-decoration:none;color:var(--text-default);transition:var(--transition-colors)}
+.main-navigation>ul>li>a::after{content:'';display:block;height:var(--accent-bar-height);position:absolute;right:1rem;bottom:0;left:1rem;transition:background var(--duration-fast) var(--ease-default)}
+.main-navigation>ul>li>a:hover{color:var(--color-primary-600)}
+.main-navigation>ul>li>a.active::after,.main-navigation>ul>li>a:hover::after{background:var(--color-primary-500)}
+.main-navigation--mobile{flex-direction:column;height:auto;margin-left:0}
+.main-navigation--mobile ul{flex-direction:column;height:auto;width:100%}
+.main-navigation--mobile>ul>li>a{height:auto;padding:0.875rem 0;border-bottom:1px solid var(--border-default);justify-content:space-between}
+.main-navigation--mobile>ul>li>a::after{display:none}
+
+.meta-navigation{display:flex;gap:0.25rem;list-style:none;margin:0;padding:0;font-size:var(--step-sm)}
+.meta-navigation a{display:inline-flex;align-items:center;padding:0.25rem 0.75rem;color:var(--text-default);text-decoration:none;transition:var(--transition-colors)}
+.meta-navigation a:hover{color:var(--color-primary-600)}
+
+/* BREADCRUMB — desktop only, small grey, hairline chevron separators */
+.breadcrumb{padding:0.5rem 0;position:relative;z-index:20;font-size:var(--text-sm);color:var(--text-light);display:none}
+@media (min-width:1024px){.breadcrumb{display:block}}
+.breadcrumb nav>ul{display:flex;flex-wrap:wrap;list-style:none;margin:0;padding:0;margin-left:-1rem}
+.breadcrumb nav>ul>li{display:flex;position:relative}
+.breadcrumb nav>ul>li>a{display:flex;align-items:center;padding:0.5rem 1rem;color:inherit;text-decoration:none;line-height:var(--leading-tight);transition:var(--transition-colors)}
+.breadcrumb nav>ul>li>a:hover{color:var(--color-primary-600)}
+.breadcrumb__dropdown-icon{width:1.25em;height:1.25em;margin-left:0.5rem;color:var(--color-primary-600);border:1px solid var(--color-primary-600);border-radius:var(--radius-sm)}
+
+/* PAGINATION */
+.pagination{display:flex;align-items:stretch;gap:0.75rem}
+.pagination input{width:3rem;text-align:center;padding:0 0.5rem;min-height:var(--control-min-height)}
+.pagination__text{display:flex;align-items:center;color:var(--text-light);font-size:var(--step-sm)}
+.pagination ul{display:flex;flex-wrap:wrap;align-items:center;white-space:nowrap;gap:0.25rem;list-style:none;margin:0;padding:0}
+@media (min-width:1024px){.pagination ul{gap:0.5rem}}
+.pagination--right{display:flex;justify-content:flex-end;padding:1.5rem 0}
+
+/* LANGUAGE SWITCHER */
+.language-switcher{display:flex;list-style:none;margin:0;padding:0;gap:0.25rem;font-size:var(--step-sm)}
+.language-switcher a{padding:0.25rem 0.5rem;color:var(--text-default);text-decoration:none}
+.language-switcher a.active{font-family:var(--font-bold);border-left:2px solid var(--color-primary-600);padding-left:0.5rem}
+
+/* TOP BAR NAVIGATION (the dark utility bar above the header) */
+.top-bar{background:var(--color-secondary-600);color:var(--color-white);font-size:var(--text-sm)}
+@media (min-width:1544px){.top-bar{font-size:var(--text-base)}}
+.top-bar__inner{display:flex;align-items:center;justify-content:space-between;min-height:2.75rem}
+.top-bar__btn{display:flex;align-items:center;text-align:left;padding:0.25rem 1rem 0.25rem 0;min-height:2.75rem;background:none;border:0;color:inherit;cursor:pointer;transition:var(--transition-colors);gap:0.5rem;font-family:var(--font-regular);font-size:inherit}
+.top-bar__btn:hover{color:var(--color-text-300)}
+.top-bar__btn__icon{transition:transform var(--duration-fast) var(--ease-default)}
+.top-bar--is-open .top-bar__btn__icon{transform:rotate(180deg)}
+.top-bar__drawer{padding-top:1.5rem;background:var(--color-secondary-600);color:var(--color-white)}
+.top-bar__title{font-size:var(--step-lg);margin-bottom:1.5rem;line-height:1.25;font-family:var(--font-bold)}
+.top-bar__right{display:flex;align-items:center;gap:0.75rem}
