@@ -1,0 +1,772 @@
+/* Screen-spezifische Layouts. Bewusst pro Screen gescoped, damit die
+   Abstände genau dem Design entsprechen und sich nicht gegenseitig stören. */
+
+/* Screens, deren Aktionsbereich unten kleben soll, brauchen die volle Höhe. */
+.screen {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Willkommen ----------------------------------------------------------- */
+
+.screen-welcome {
+  padding: 56px 16px 28px;
+}
+
+.screen-welcome__title {
+  margin: 0 0 14px;
+  font-family: var(--font-bold);
+  font-size: 32px;
+  line-height: 1.15;
+  color: var(--color-secondary-800);
+  text-wrap: pretty;
+}
+
+/* `margin-bottom: auto` schiebt die Buttons ans Screen-Ende. */
+.screen-welcome__lead {
+  margin: 0 0 auto;
+  font-size: 18px;
+  line-height: var(--leading-normal);
+  color: var(--color-text-600);
+  text-wrap: pretty;
+}
+
+.screen-welcome__primary {
+  margin: 32px 0 12px;
+}
+
+/* --- Einführung ----------------------------------------------------------- */
+
+.screen-intro {
+  padding: 20px 16px;
+}
+
+.screen-intro__title {
+  margin: 0 0 8px;
+  font-family: var(--font-bold);
+  font-size: 27px;
+  line-height: var(--leading-tight);
+  color: var(--color-secondary-800);
+  text-wrap: pretty;
+}
+
+.screen-intro__lead {
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-text-600);
+}
+
+.screen-intro .steps,
+.screen-intro .note {
+  margin: 0 0 20px;
+}
+
+/* Drei nummerierte Erklärschritte. */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--color-secondary-50);
+  padding: 14px 16px;
+}
+
+.step__num {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border-radius: var(--radius-full);
+  background: var(--color-secondary-600);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-bold);
+  font-size: 15px;
+}
+
+.step__body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.step__title {
+  font-family: var(--font-bold);
+  font-size: 16px;
+  color: var(--color-secondary-800);
+}
+
+.step__text {
+  font-size: 15px;
+  line-height: var(--leading-normal);
+  color: var(--color-text-600);
+}
+
+/* --- Onboarding (Schritte 1–3) -------------------------------------------- */
+
+.screen-onb {
+  padding: 18px 16px 20px;
+}
+
+.onbbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 0 14px;
+}
+
+.onbbar__step {
+  font-size: 15px;
+  color: var(--color-text-500);
+}
+
+.screen-onb .stepper {
+  margin: 0 0 22px;
+}
+
+.screen-onb__title {
+  margin: 0 0 6px;
+  font-family: var(--font-bold);
+  font-size: 26px;
+  line-height: var(--leading-tight);
+  color: var(--color-secondary-800);
+  text-wrap: pretty;
+}
+
+.screen-onb__lead {
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: var(--leading-normal);
+  color: var(--color-text-500);
+}
+
+.screen-onb .panel,
+.screen-onb .card {
+  margin: 0 0 18px;
+}
+
+.screen-onb .note {
+  margin: 0 0 18px;
+}
+
+.screen-onb__eidcard {
+  margin: 0 0 18px;
+}
+
+/* Adressformular */
+.screen-onb__strasse {
+  margin: 0 0 14px;
+}
+
+.screen-onb__plzort {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  margin: 0 0 18px;
+}
+
+.screen-onb .resolving,
+.screen-onb__gemeinde {
+  margin: 0 0 16px;
+}
+
+/* --- Verbindung aktiv ----------------------------------------------------- */
+
+.screen-aktiv {
+  padding: 48px 16px 28px;
+  align-items: center;
+  text-align: center;
+}
+
+.screen-aktiv .bigcheck {
+  margin: 0 0 22px;
+}
+
+.screen-aktiv__title {
+  margin: 0 0 8px;
+  font-family: var(--font-bold);
+  font-size: 27px;
+  line-height: var(--leading-tight);
+  color: var(--color-secondary-800);
+}
+
+.screen-aktiv__lead {
+  margin: 0 0 22px;
+  font-size: 16px;
+  line-height: var(--leading-normal);
+  color: var(--color-text-500);
+}
+
+/* `margin-bottom: auto` hält den Button unten am Screen-Ende. */
+.screen-aktiv .panel {
+  width: 100%;
+  text-align: left;
+  margin: 0 0 auto;
+}
+
+.screen-aktiv__actions {
+  width: 100%;
+  margin: 24px 0 0;
+}
+
+/* --- Startseite ----------------------------------------------------------- */
+
+.screen-home {
+  padding: 18px 16px 28px;
+}
+
+.screen-home__eyebrow {
+  margin: 0 0 2px;
+  font-size: 16px;
+  color: var(--color-text-500);
+}
+
+.screen-home__title {
+  margin: 0 0 12px;
+  font-family: var(--font-bold);
+  font-size: 26px;
+  line-height: var(--leading-tight);
+  color: var(--color-secondary-800);
+  text-wrap: pretty;
+}
+
+.screen-home__lead {
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-text-800);
+}
+
+.screen-home .note {
+  margin: 0 0 16px;
+}
+
+.screen-home__setup {
+  margin: 0 0 12px;
+}
+
+.screen-home__browse {
+  margin: 0 0 24px;
+}
+
+/* Abschnitt «Meine Willensbekundungen» */
+.suplist {
+  border-top: var(--border-width) solid var(--color-text-200);
+  padding: 18px 0 6px;
+  margin: 0 0 6px;
+}
+
+.suplist__title {
+  margin: 0 0 10px;
+  font-family: var(--font-bold);
+  font-size: 17px;
+  color: var(--color-secondary-800);
+}
+
+.suplist__item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: var(--border-width) solid var(--color-secondary-200);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin: 0 0 10px;
+  cursor: pointer;
+  transition: var(--transition-colors);
+}
+
+.suplist__item:hover {
+  border-color: var(--color-secondary-400);
+}
+
+.suplist__itemtitle {
+  display: block;
+  font-family: var(--font-bold);
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--color-secondary-800);
+}
+
+.suplist__item .badge {
+  margin: 8px 0 0;
+}
+
+/* Abschnitt Pilotbetrieb / Bundeskanzlei */
+.homeinfo {
+  border-top: var(--border-width) solid var(--color-text-200);
+  padding: 18px 0 0;
+}
+
+.h2 {
+  margin: 0 0 10px;
+  font-family: var(--font-bold);
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--color-secondary-800);
+}
+
+.infoblocks {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0 0 20px;
+}
+
+.homeinfo__text {
+  margin: 0 0 12px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-text-800);
+}
+
+.extlink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 16px;
+  color: var(--color-primary-600);
+  text-decoration: none;
+}
+
+.extlink:hover {
+  color: var(--color-primary-800);
+}
+
+.footnote {
+  margin: 14px 0 0;
+  font-size: 13px;
+  line-height: var(--leading-normal);
+  color: var(--color-text-400);
+}
+
+/* --- Volksbegehren-Liste -------------------------------------------------- */
+
+.screen-liste {
+  padding: 18px 16px 24px;
+}
+
+.screen-liste__title {
+  margin: 0 0 4px;
+  font-family: var(--font-bold);
+  font-size: 27px;
+  line-height: var(--leading-tight);
+  color: var(--color-secondary-800);
+}
+
+.screen-liste__lead {
+  margin: 0 0 16px;
+  font-size: 16px;
+  color: var(--color-text-500);
+}
+
+.screen-liste .tabs {
+  margin: 0 0 18px;
+}
+
+.begehren {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: var(--border-width) solid var(--color-secondary-200);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin: 0 0 14px;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-colors);
+}
+
+.begehren:hover {
+  border-color: var(--color-secondary-400);
+}
+
+.begehren__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.begehren__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.begehren__titel {
+  font-family: var(--font-bold);
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--color-secondary-800);
+  text-wrap: pretty;
+}
+
+.begehren__frist {
+  font-size: 15px;
+  color: var(--color-text-500);
+}
+
+.begehren__chevron {
+  margin-top: 26px;
+  color: var(--color-secondary-300);
+}
+
+.screen-liste__source {
+  margin: 20px 0 0;
+  font-size: 13px;
+  line-height: var(--leading-normal);
+  text-align: center;
+  color: var(--color-text-400);
+}
+
+/* --- Begehren-Detail ------------------------------------------------------ */
+
+.screen-detail {
+  padding: 12px 16px 20px;
+}
+
+.screen-detail__badge {
+  display: block;
+  margin: 6px 0 10px;
+}
+
+.screen-detail__title {
+  margin: 0 0 16px;
+  font-family: var(--font-bold);
+  font-size: 26px;
+  line-height: 1.22;
+  color: var(--color-secondary-800);
+  text-wrap: pretty;
+}
+
+.screen-detail__h2 {
+  margin: 0 0 10px;
+  font-family: var(--font-bold);
+  font-size: 19px;
+  color: var(--color-secondary-800);
+}
+
+.screen-detail__wortlaut {
+  margin: 0 0 18px;
+}
+
+/* Wortlaut-Auszug liest sich eine Stufe grösser als die übrigen Panels. */
+.screen-detail__wortlaut p {
+  font-size: 16px;
+}
+
+.screen-detail .note {
+  margin: 0 0 20px;
+}
+
+.screen-detail__status {
+  width: 100%;
+  min-height: 48px;
+  margin: 12px 0 0;
+}
+
+/* --- Übermittlung (Animation) --------------------------------------------- */
+
+.screen-senden {
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.send__stage {
+  position: relative;
+  width: 300px;
+  height: 210px;
+  margin: 0 0 28px;
+}
+
+/* Unterschriftenbogen: wird signiert, dann gefaltet. */
+.send__sheet {
+  position: absolute;
+  left: 26px;
+  top: 14px;
+  width: 96px;
+  height: 132px;
+  background: #fff;
+  border: var(--border-width) solid var(--color-secondary-200);
+  box-shadow: var(--shadow-lg);
+  transform-origin: 50% 100%;
+  transition:
+    transform 600ms var(--ease-default),
+    opacity 400ms var(--ease-default);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 10px;
+  overflow: hidden;
+}
+
+.send__line {
+  height: 4px;
+  background: var(--color-secondary-100);
+}
+
+.send__rule {
+  margin-top: auto;
+  height: 2px;
+  width: 100%;
+  background: var(--color-secondary-200);
+}
+
+.send__sigslot {
+  height: 14px;
+  position: relative;
+}
+
+.send__sig {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  height: 3px;
+  background: var(--color-primary-600);
+  border-radius: 2px;
+  animation: ec-sign 0.9s var(--ease-default) both;
+}
+
+/* Verschlüsseltes Couvert: erscheint, wird verschlossen, fliegt zur Gemeinde. */
+.send__env {
+  position: absolute;
+  left: 24px;
+  bottom: 26px;
+  width: 132px;
+  height: 84px;
+  background: var(--color-secondary-50);
+  border: var(--border-width) solid var(--color-secondary-300);
+  transition:
+    transform 700ms var(--ease-default),
+    opacity 400ms var(--ease-default);
+}
+
+.send__flap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 44px;
+  background: var(--color-secondary-100);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.send__lock {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-secondary-600);
+  transition: opacity 400ms var(--ease-default);
+}
+
+.send__target {
+  position: absolute;
+  right: 8px;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-secondary-300);
+  transition: color 400ms var(--ease-default);
+}
+
+.send__target--arrived {
+  color: var(--color-green-800);
+}
+
+.send__targetname {
+  font-size: 13px;
+  line-height: 1.3;
+  text-align: center;
+  max-width: 78px;
+}
+
+.send__label {
+  margin: 0 0 10px;
+  font-family: var(--font-bold);
+  font-size: 18px;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--color-secondary-800);
+}
+
+.send__hint {
+  margin: 0 0 22px;
+  font-size: 15px;
+  line-height: var(--leading-normal);
+  text-align: center;
+  color: var(--color-text-500);
+  max-width: 280px;
+}
+
+.send__dots {
+  display: flex;
+  gap: 8px;
+}
+
+.send__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-secondary-200);
+}
+
+.send__dot--on {
+  background: var(--color-primary-600);
+}
+
+/* --- Quittung ------------------------------------------------------------- */
+
+.screen-quittung {
+  padding: 36px 16px 20px;
+  align-items: center;
+}
+
+.screen-quittung .bigcheck {
+  margin: 0 0 20px;
+}
+
+.screen-quittung__title {
+  margin: 0 0 6px;
+  font-family: var(--font-bold);
+  font-size: 26px;
+  line-height: var(--leading-tight);
+  text-align: center;
+  color: var(--color-secondary-800);
+  text-wrap: pretty;
+}
+
+.screen-quittung__lead {
+  margin: 0 0 20px;
+  font-size: 16px;
+  text-align: center;
+  color: var(--color-text-500);
+}
+
+.screen-quittung .card {
+  width: 100%;
+  margin: 0 0 16px;
+}
+
+.screen-quittung .note {
+  width: 100%;
+  margin: 0 0 14px;
+}
+
+.screen-quittung__statuscell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Der swiyu-Hinweis erscheint erst mit der Empfangsbestätigung. */
+.screen-quittung__wallet {
+  width: 100%;
+  margin: 0 0 18px;
+  animation: ec-fade 0.25s var(--ease-default) both;
+}
+
+/* --- Profil --------------------------------------------------------------- */
+
+.screen-profil {
+  padding: 18px 16px 28px;
+}
+
+.screen-profil__title {
+  margin: 0 0 16px;
+  font-family: var(--font-bold);
+  font-size: 27px;
+  line-height: var(--leading-tight);
+  color: var(--color-secondary-800);
+}
+
+.screen-profil .card {
+  margin: 0 0 16px;
+}
+
+.screen-profil .panel {
+  margin: 0 0 18px;
+}
+
+.screen-profil .note {
+  margin: 0 0 14px;
+}
+
+.screen-profil__action {
+  margin: 0 0 12px;
+}
+
+/* Karte der aktiven Gemeindeverbindung. */
+.conncard {
+  background: #fff;
+  border: var(--border-width) solid var(--color-secondary-200);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin: 0 0 14px;
+  box-shadow: var(--shadow-lg);
+}
+
+.conncard__head {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.conncard__icon {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: var(--radius-full);
+  background: var(--color-green-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-green-800);
+}
+
+.conncard__body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.conncard__title {
+  font-family: var(--font-bold);
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--color-secondary-800);
+}
+
+.conncard__meta {
+  font-size: 15px;
+  line-height: var(--leading-normal);
+  color: var(--color-text-500);
+}
+
+.conncard__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 0;
+}

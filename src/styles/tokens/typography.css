@@ -1,0 +1,47 @@
+/* TYPOGRAPHY — one family per weight/style (upstream has no numeric weight axis:
+   tailwind fontWeight maps BOTH normal and bold to 400 and switches family instead). */
+
+:root{
+  --font-regular:'Font-Regular','Hind','Fallback-font',sans-serif;
+  --font-italic:'Font-Italic','Hind','Fallback-font',sans-serif;
+  --font-bold:'Font-Bold','Hind','Fallback-font',sans-serif;
+  --font-bold-italic:'Font-Bold-Italic','Hind','Fallback-font',sans-serif;
+  --font-body:var(--font-regular);
+  --font-heading:var(--font-bold);
+
+  /* Raw ramp */
+  --text-xs:0.75rem;
+  --text-sm:0.875rem;
+  --text-base:1rem;
+  --text-lg:1.125rem;
+  --text-xl:1.25rem;
+  --text-2xl:1.375rem;
+  --text-3xl:1.625rem;
+  --text-4xl:2rem;
+  --text-5xl:2.5rem;
+  --text-6xl:3rem;
+  --text-7xl:3.5rem;
+  --text-8xl:4rem;
+  --text-9xl:5rem;
+
+  /* Fluid step tokens. Upstream scales each step up at lg / xl / 3xl breakpoints;
+     these clamps reproduce the same visual range in one declaration. */
+  --step-xs:clamp(0.75rem,0.72rem + 0.15vw,1rem); /* @kind other */
+  --step-sm:clamp(0.875rem,0.85rem + 0.15vw,1.125rem); /* @kind other */
+  --step-base:clamp(1rem,0.97rem + 0.15vw,1.25rem); /* @kind other */
+  --step-lg:clamp(1.125rem,1.08rem + 0.2vw,1.375rem); /* @kind other */
+  --step-xl:clamp(1.25rem,1.1rem + 0.7vw,2rem); /* @kind other */
+  --step-2xl:clamp(1.375rem,1.15rem + 1vw,2.5rem); /* @kind other */
+  --step-3xl:clamp(1.625rem,1.3rem + 1.4vw,3rem); /* @kind other */
+  --step-4xl:clamp(2rem,1.5rem + 2vw,3.5rem); /* @kind other */
+  --step-5xl:clamp(2.5rem,1.8rem + 2.8vw,4rem); /* @kind other */
+
+  --leading-none:1; /* @kind other */
+  --leading-tight:1.25; /* @kind other */
+  --leading-snug:1.375; /* @kind other */
+  --leading-normal:1.5; /* @kind other */
+  --leading-relaxed:1.625; /* @kind other */
+
+  --word-spacing-body:0.0625em; /* @kind spacing */
+  --underline-offset:2px; /* @kind spacing */
+}
