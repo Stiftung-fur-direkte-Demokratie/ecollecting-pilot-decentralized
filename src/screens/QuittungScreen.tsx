@@ -1,5 +1,4 @@
 import type { Ecollecting } from '../state/useEcollecting'
-import { findBegehren } from '../data/begehren'
 import { BigCheck, Note, StickyFooter } from '../components/blocks'
 
 /**
@@ -8,8 +7,8 @@ import { BigCheck, Note, StickyFooter } from '../components/blocks'
  * Der swiyu-Hinweis erscheint erst mit dieser Bestätigung.
  */
 export function QuittungScreen({ ec }: { ec: Ecollecting }) {
-  const { state, actions, gemeindeLabel } = ec
-  const begehren = findBegehren(state.currentId)
+  const { state, actions, gemeindeLabel, find } = ec
+  const begehren = find(state.currentId)
   const meta = state.supported[begehren.id]
   const empfangen = state.cert[begehren.id] === 'empfangen'
 

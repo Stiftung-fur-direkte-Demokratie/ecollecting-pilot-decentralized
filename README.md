@@ -68,6 +68,35 @@ Farben, Typografie, Radien, Schatten und Motion kommen ausschliesslich aus den
 Tokens des Design-Systems: Noto Sans, Primärrot `#d8232a`, Secondary `#2f4356`,
 2px-Radius auf Buttons, Badges als Pills, violetter Fokusring.
 
+## Amtliche Daten (LINDAS)
+
+Die Volksbegehren werden beim Start aus dem SPARQL-Endpunkt von LINDAS geholt.
+Die beiden Abfragen liegen unverändert unter `src/data/queries/` und stammen aus
+den Cubes `popular-initiative` und `referendum`:
+
+- **Initiativen** – Status *hängig*; die App zeigt davon nur die Phase
+  *im Sammelstadium*, weil nur dort noch unterschrieben werden kann.
+  Sammelfrist = `sammelbeginn` + 18 Monate (Art. 71 Abs. 1 BPR).
+- **Referenden** – gefiltert auf *laufende Referendumsfrist*.
+
+Ist der Endpunkt nicht erreichbar (Netzsperre, CORS, Wartung) oder liefert er
+nichts, bleiben die Beispieldaten aus `src/data/begehren.ts` stehen; die
+Fusszeile der Liste weist die Quelle entsprechend aus. Im Dev-Betrieb läuft die
+Abfrage über den Vite-Proxy `/lindas`, für einen Build kann der Endpunkt über
+`VITE_LINDAS_ENDPOINT` auf einen eigenen Proxy gelegt werden.
+
+Zwei Dinge bewusst nicht übernommen:
+
+- **Unterschriftenzahlen.** Beide Cubes liefern sie mit; die App zeigt aus
+  Datensparsamkeit keine Zähler.
+- **Referendumsfrist als Datum.** Die Frist beträgt 100 Tage ab Publikation im
+  Bundesblatt (Art. 141 BV); die Abfrage liefert nur das Beschlussdatum des
+  Parlaments. Statt ein auf Wochen geschätztes Datum anzuzeigen, steht dort
+  «Referendumsfrist läuft».
+
+LINDAS liefert keinen Gesetzestext. Für amtlich bezogene Begehren entfällt der
+Wortlaut-Auszug; das Detail verweist stattdessen auf die BBl-Fundstelle.
+
 ## Konfiguration
 
 `App` nimmt optional eine `PrototypConfig` entgegen – dieselben Stellschrauben wie

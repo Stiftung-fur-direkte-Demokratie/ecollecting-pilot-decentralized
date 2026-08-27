@@ -4,13 +4,21 @@ export interface Begehren {
   id: string
   typ: BegehrenTyp
   titel: string
-  /** Ende der Sammel- bzw. Referendumsfrist, ausgeschrieben. */
-  frist: string
+  /**
+   * Ende der Sammel- bzw. Referendumsfrist, ausgeschrieben. Fehlt, wenn sich
+   * die Frist aus den amtlichen Daten nicht zuverlässig ableiten lässt.
+   */
+  frist?: string
   /** Amtliche Kennung (Vorprüfung bzw. BBl-Fundstelle). */
   kennung: string
-  /** Erste Zeilen des Wortlauts, wie sie im Detail angerissen werden. */
-  auszug: string
-  wortlaut: string
+  /**
+   * Erste Zeilen des Wortlauts. LINDAS liefert keinen Gesetzestext, darum
+   * fehlen Auszug und Volltext bei amtlich bezogenen Begehren.
+   */
+  auszug?: string
+  wortlaut?: string
+  /** Woher der Datensatz stammt. */
+  quelle?: 'lindas' | 'beispiel'
 }
 
 /**
@@ -22,6 +30,7 @@ export const BEGEHREN: Begehren[] = [
   {
     id: 'vi-561',
     typ: 'initiative',
+    quelle: 'beispiel',
     titel: '«Für transparente Algorithmen in der öffentlichen Verwaltung»',
     frist: '4. März 2028',
     kennung: 'Vorprüfung Nr. 561 (Beispiel)',
@@ -33,6 +42,7 @@ export const BEGEHREN: Begehren[] = [
   {
     id: 'vi-574',
     typ: 'initiative',
+    quelle: 'beispiel',
     titel: '«Gletscherschutz-Fonds jetzt»',
     frist: '19. November 2027',
     kennung: 'Vorprüfung Nr. 574 (Beispiel)',
@@ -44,6 +54,7 @@ export const BEGEHREN: Begehren[] = [
   {
     id: 'ref-eng',
     typ: 'referendum',
+    quelle: 'beispiel',
     titel: 'Änderung des Energiegesetzes vom 20. Juni 2026',
     frist: '8. Oktober 2026',
     kennung: 'BBl 2026 1487 (Beispiel)',
@@ -55,6 +66,7 @@ export const BEGEHREN: Begehren[] = [
   {
     id: 'ref-urg',
     typ: 'referendum',
+    quelle: 'beispiel',
     titel: 'Teilrevision des Urheberrechtsgesetzes',
     frist: '21. September 2026',
     kennung: 'BBl 2026 1312 (Beispiel)',
@@ -65,6 +77,7 @@ export const BEGEHREN: Begehren[] = [
   {
     id: 'vi-588',
     typ: 'initiative',
+    quelle: 'beispiel',
     titel: '«Für eine Grundversorgung mit Hausarztmedizin in allen Regionen»',
     frist: '2. Februar 2028',
     kennung: 'Vorprüfung Nr. 588 (Beispiel)',
@@ -76,6 +89,7 @@ export const BEGEHREN: Begehren[] = [
   {
     id: 'vi-592',
     typ: 'initiative',
+    quelle: 'beispiel',
     titel: '«Bahnausbau statt Autobahnausbau»',
     frist: '16. Mai 2028',
     kennung: 'Vorprüfung Nr. 592 (Beispiel)',
@@ -87,6 +101,7 @@ export const BEGEHREN: Begehren[] = [
   {
     id: 'vi-596',
     typ: 'initiative',
+    quelle: 'beispiel',
     titel: '«Transparenz bei der Beschaffung von Rüstungsgütern»',
     frist: '9. August 2028',
     kennung: 'Vorprüfung Nr. 596 (Beispiel)',
@@ -98,6 +113,7 @@ export const BEGEHREN: Begehren[] = [
   {
     id: 'ref-dsg',
     typ: 'referendum',
+    quelle: 'beispiel',
     titel: 'Änderung des Datenschutzgesetzes vom 26. September 2026',
     frist: '14. Januar 2027',
     kennung: 'BBl 2026 2210 (Beispiel)',
@@ -109,6 +125,7 @@ export const BEGEHREN: Begehren[] = [
   {
     id: 'ref-ahv',
     typ: 'referendum',
+    quelle: 'beispiel',
     titel: 'Bundesbeschluss über die Finanzierung der AHV vom 3. Juli 2026',
     frist: '22. Oktober 2026',
     kennung: 'BBl 2026 1655 (Beispiel)',
@@ -118,6 +135,3 @@ export const BEGEHREN: Begehren[] = [
   },
 ]
 
-export function findBegehren(id: string | null): Begehren {
-  return BEGEHREN.find((b) => b.id === id) ?? BEGEHREN[0]
-}

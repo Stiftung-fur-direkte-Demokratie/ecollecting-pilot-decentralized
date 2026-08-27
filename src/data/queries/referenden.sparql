@@ -1,0 +1,266 @@
+#pragma describe.strategy cbd
+#pragma join.hash off
+SELECT ?dimension0 ?dimension1 ?dimension2 ?dimension3 ?dimension4 ?dimension5 ?dimension6 ?dimension7 ?dimension8 ?dimension9 ?dimension10 ?dimension11 ?dimension12 ?dimension13 ?dimension14 ?dimension15 ?dimension16 ?dimension17 ?dimension18 ?dimension19 ?dimension20 ?dimension21 ?dimension22 ?dimension23 ?dimension24 ?dimension25 WHERE {
+  <https://politics.ld.admin.ch/political-rights/referendum/1> <https://cube.link/observationSet> ?observationSet0 .
+  ?observationSet0 <https://cube.link/observation> ?source0 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/region> ?dimension0 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/unterschriftenEingereicht> ?dimension1 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/unterschriftenGueltigNachAuszaehlung> ?dimension2 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/unterschriftenGueltig> ?dimension3 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/unterschriftenUngueltig> ?dimension4 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/unterschriftenUngueltigAnteil> ?dimension5 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/id> ?dimension6 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/titel> ?dimension7 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/aenderung> ?dimension8 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/beschlussdatum> ?dimension9 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/beschlussdatumJahr> ?dimension10 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/typ> ?dimension11 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/abstimmungsNummerBk> ?dimension12 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/botschaftBrNummer> ?dimension13 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/botschaftBrNummer8stellig> ?dimension14 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/laufendeReferendumsfrist> ?dimension15 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/status> ?dimension16 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/phase> ?dimension17 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/referendum/zustandegekommen> ?dimension18 .
+  FILTER (
+    (?dimension0 = <https://ld.admin.ch/country/CHE>)
+  )
+  FILTER (
+    (?dimension11 IN (<https://politics.ld.admin.ch/political-rights/referendum/typ/7>, <https://politics.ld.admin.ch/political-rights/referendum/typ/8>, <https://politics.ld.admin.ch/political-rights/referendum/typ/11>, <https://politics.ld.admin.ch/political-rights/referendum/typ/12>, <https://politics.ld.admin.ch/political-rights/referendum/typ/14>, <https://politics.ld.admin.ch/political-rights/referendum/typ/16>, <https://politics.ld.admin.ch/political-rights/referendum/typ/17>, <https://politics.ld.admin.ch/political-rights/referendum/typ/18>, <https://politics.ld.admin.ch/political-rights/referendum/typ/19>, <https://politics.ld.admin.ch/political-rights/referendum/typ/21>, <https://politics.ld.admin.ch/political-rights/referendum/typ/22>, <https://politics.ld.admin.ch/political-rights/referendum/typ/23>, <https://politics.ld.admin.ch/political-rights/referendum/typ/25>, <https://politics.ld.admin.ch/political-rights/referendum/typ/26>, <https://politics.ld.admin.ch/political-rights/referendum/typ/27>, <https://politics.ld.admin.ch/political-rights/referendum/typ/28>, <https://politics.ld.admin.ch/political-rights/referendum/typ/30>, <https://politics.ld.admin.ch/political-rights/referendum/typ/31>, <https://politics.ld.admin.ch/political-rights/referendum/typ/950001>))
+  )
+  FILTER (
+    (?dimension15 IN (<https://politics.ld.admin.ch/political-rights/referendum/laufendeReferendumsfrist/ja>, <https://cube.link/Undefined>))
+  )
+  FILTER (
+    (?dimension17 IN (<https://politics.ld.admin.ch/political-rights/referendum/phase/laufendeReferendumsfrist>))
+  )
+  FILTER (
+    (?dimension9 >= "1874-06-17"^^<http://www.w3.org/2001/XMLSchema#date>)
+  )
+  FILTER (
+    (?dimension9 <= "2026-06-19"^^<http://www.w3.org/2001/XMLSchema#date>)
+  )
+  FILTER (
+    (?dimension10 >= "1874"^^<http://www.w3.org/2001/XMLSchema#gYear>)
+  )
+  FILTER (
+    (?dimension10 <= "2026"^^<http://www.w3.org/2001/XMLSchema#gYear>)
+  )
+  OPTIONAL {
+    ?dimension0 <http://schema.org/name> ?dimension19_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension19_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension0 <http://schema.org/name> ?dimension19_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension19_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension0 <http://schema.org/name> ?dimension19_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension19_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension0 <http://schema.org/name> ?dimension19_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension19_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension0 <http://schema.org/name> ?dimension19_4 .
+    FILTER (
+      (LANG(?dimension19_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension19_0, ?dimension19_1, ?dimension19_2, ?dimension19_3, ?dimension19_4) AS ?dimension19)
+  OPTIONAL {
+    ?dimension7 <http://schema.org/name> ?dimension20_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension20_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension7 <http://schema.org/name> ?dimension20_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension20_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension7 <http://schema.org/name> ?dimension20_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension20_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension7 <http://schema.org/name> ?dimension20_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension20_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension7 <http://schema.org/name> ?dimension20_4 .
+    FILTER (
+      (LANG(?dimension20_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension20_0, ?dimension20_1, ?dimension20_2, ?dimension20_3, ?dimension20_4) AS ?dimension20)
+  OPTIONAL {
+    ?dimension11 <http://schema.org/name> ?dimension21_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension21_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension11 <http://schema.org/name> ?dimension21_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension21_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension11 <http://schema.org/name> ?dimension21_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension21_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension11 <http://schema.org/name> ?dimension21_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension21_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension11 <http://schema.org/name> ?dimension21_4 .
+    FILTER (
+      (LANG(?dimension21_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension21_0, ?dimension21_1, ?dimension21_2, ?dimension21_3, ?dimension21_4) AS ?dimension21)
+  OPTIONAL {
+    ?dimension15 <http://schema.org/name> ?dimension22_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension22_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension15 <http://schema.org/name> ?dimension22_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension22_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension15 <http://schema.org/name> ?dimension22_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension22_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension15 <http://schema.org/name> ?dimension22_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension22_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension15 <http://schema.org/name> ?dimension22_4 .
+    FILTER (
+      (LANG(?dimension22_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension22_0, ?dimension22_1, ?dimension22_2, ?dimension22_3, ?dimension22_4) AS ?dimension22)
+  OPTIONAL {
+    ?dimension16 <http://schema.org/name> ?dimension23_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension23_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension16 <http://schema.org/name> ?dimension23_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension23_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension16 <http://schema.org/name> ?dimension23_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension23_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension16 <http://schema.org/name> ?dimension23_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension23_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension16 <http://schema.org/name> ?dimension23_4 .
+    FILTER (
+      (LANG(?dimension23_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension23_0, ?dimension23_1, ?dimension23_2, ?dimension23_3, ?dimension23_4) AS ?dimension23)
+  OPTIONAL {
+    ?dimension17 <http://schema.org/name> ?dimension24_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension24_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension17 <http://schema.org/name> ?dimension24_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension24_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension17 <http://schema.org/name> ?dimension24_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension24_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension17 <http://schema.org/name> ?dimension24_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension24_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension17 <http://schema.org/name> ?dimension24_4 .
+    FILTER (
+      (LANG(?dimension24_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension24_0, ?dimension24_1, ?dimension24_2, ?dimension24_3, ?dimension24_4) AS ?dimension24)
+  OPTIONAL {
+    ?dimension18 <http://schema.org/name> ?dimension25_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension25_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension18 <http://schema.org/name> ?dimension25_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension25_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension18 <http://schema.org/name> ?dimension25_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension25_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension18 <http://schema.org/name> ?dimension25_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension25_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension18 <http://schema.org/name> ?dimension25_4 .
+    FILTER (
+      (LANG(?dimension25_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension25_0, ?dimension25_1, ?dimension25_2, ?dimension25_3, ?dimension25_4) AS ?dimension25)
+}

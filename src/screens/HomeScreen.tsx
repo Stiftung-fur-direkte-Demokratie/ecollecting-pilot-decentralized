@@ -1,11 +1,10 @@
 import type { Ecollecting } from '../state/useEcollecting'
-import { findBegehren } from '../data/begehren'
 import { Icon } from '../components/Icon'
 import { Note, Panel } from '../components/blocks'
 
 /** Startseite: Pilotbetrieb erklären, Verbindungsstatus, eigene Bekundungen. */
 export function HomeScreen({ ec }: { ec: Ecollecting }) {
-  const { state, actions } = ec
+  const { state, actions, find } = ec
   const supportedIds = Object.keys(state.supported)
 
   return (
@@ -47,7 +46,7 @@ export function HomeScreen({ ec }: { ec: Ecollecting }) {
         <div className="suplist">
           <p className="suplist__title">Meine Willensbekundungen</p>
           {supportedIds.map((id) => {
-            const begehren = findBegehren(id)
+            const begehren = find(id)
             const empfangen = state.cert[id] === 'empfangen'
             return (
               <button

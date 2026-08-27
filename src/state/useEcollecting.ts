@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { DEFAULT_GEMEINDE, GEMEINDEN, STREETS, type Gemeinde } from '../data/adressen'
-import { findBegehren } from '../data/begehren'
+import { useBegehren } from '../data/useBegehren'
 import { formatDate, formatDateTime, makeQuittungId } from './format'
 import type { CertStatus, Dialog, PrototypConfig, Screen, SendStage, SupportMeta, Tab } from './types'
 import { DEFAULT_CONFIG } from './types'
@@ -62,6 +62,9 @@ const KNOB_WIDTH = 64
 
 export function useEcollecting(config: PrototypConfig = DEFAULT_CONFIG) {
   const [state, setState] = useState<EcollectingState>(INITIAL)
+
+  // Volksbegehren: amtlich aus LINDAS, mit Rückfall auf die Beispieldaten.
+  const begehren = useBegehren()
 
   // Alle laufenden Timer, damit sie beim Unmount und beim Zurücksetzen
   // zuverlässig abgeräumt werden.
@@ -167,11 +170,11 @@ export function useEcollecting(config: PrototypConfig = DEFAULT_CONFIG) {
   )
 
   const beginFace = useCallback(() => {
-    const cur = findBegehren(state.currentId)
+    const cur = begehren.find(state.currentId)
     setState((prev) => ({ ...prev, dialog: 'face', faceText: 'Face ID …', slide: 0, gelesen: false }))
     later(() => setState((prev) => ({ ...prev, faceText: 'Signiert – wird übermittelt' })), 1100)
     later(() => beginSend(cur.id), 1900)
-  }, [beginSend, later, state.currentId])
+  }, [beginSend, begehren, later, state.currentId])
 
   const slideTo = useCallback((clientX: number) => {
     const rect = trackRect.current
@@ -320,6 +323,9 @@ export function useEcollecting(config: PrototypConfig = DEFAULT_CONFIG) {
     actions,
     slider,
     suggestions,
+    begehren: begehren.liste,
+    quelle: begehren.quelle,
+    find: begehren.find,
     gemeindeLabel,
     gemeindeName,
     bfs,

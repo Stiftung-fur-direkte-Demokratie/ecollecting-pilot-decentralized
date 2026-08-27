@@ -21,8 +21,8 @@ export function VerbindungSheet({ gemeindeLabel, onAufheben, onClose }: Verbindu
             <span className="sheetrow__val">{gemeindeLabel}</span>
           </div>
           <div className="sheetrow">
-            <span className="sheetrow__key">Zugangsdienst</span>
-            <span className="sheetrow__val">registriert</span>
+            <span className="sheetrow__key">Verbindung</span>
+            <span className="sheetrow__val">aktiv</span>
           </div>
           <div className="sheetrow">
             <span className="sheetrow__key">Unterschrift</span>

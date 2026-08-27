@@ -1,0 +1,423 @@
+#pragma describe.strategy cbd
+#pragma join.hash off
+SELECT ?dimension0 ?dimension1 ?dimension2 ?dimension3 ?dimension4 ?dimension5 ?dimension6 ?dimension7 ?dimension8 ?dimension9 ?dimension10 ?dimension11 ?dimension12 ?dimension13 ?dimension14 ?dimension15 ?dimension16 ?dimension17 ?dimension18 ?dimension19 ?dimension20 ?dimension21 ?dimension22 ?dimension23 ?dimension24 ?dimension25 ?dimension26 ?dimension27 ?dimension28 ?dimension29 ?dimension30 ?dimension31 ?dimension32 ?dimension33 ?dimension34 ?dimension35 WHERE {
+  <https://politics.ld.admin.ch/political-rights/popular-initiative/1> <https://cube.link/observationSet> ?observationSet0 .
+  ?observationSet0 <https://cube.link/observation> ?source0 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/region> ?dimension0 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/unterschriftenEingereicht> ?dimension1 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/unterschriftenGueltigNachAuszaehlung> ?dimension2 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/unterschriftenGueltig> ?dimension3 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/unterschriftenUngueltig> ?dimension4 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/unterschriftenUngueltigAnteil> ?dimension5 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/id> ?dimension6 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/titel> ?dimension7 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/sammelbeginn> ?dimension8 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/sammelbeginnJahr> ?dimension9 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/form> ?dimension10 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/botschaftBrNummer> ?dimension11 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/botschaftBrNummer8stellig> ?dimension12 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/gegenentwurfNummer> ?dimension13 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/empfehlungParlament> ?dimension14 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/empfehlungBundesrat> ?dimension15 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/abstimmungsNummerBk> ?dimension16 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/zustandgekommen> ?dimension17 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/zurueckgezogen> ?dimension18 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/ungueltig> ?dimension19 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/abgeschrieben> ?dimension20 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/angenommen> ?dimension21 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/status> ?dimension22 .
+  ?source0 <https://politics.ld.admin.ch/political-rights/popular-initiative/phase> ?dimension23 .
+  FILTER (
+    (?dimension0 = <https://ld.admin.ch/country/CHE>)
+  )
+  FILTER (
+    (?dimension9 >= "1892"^^<http://www.w3.org/2001/XMLSchema#gYear>)
+  )
+  FILTER (
+    (?dimension9 <= "2026"^^<http://www.w3.org/2001/XMLSchema#gYear>)
+  )
+  FILTER (
+    (?dimension22 IN (<https://politics.ld.admin.ch/political-rights/popular-initiative/status/haengig>))
+  )
+  FILTER (
+    (?dimension23 IN (<https://politics.ld.admin.ch/political-rights/popular-initiative/phase/im_sammelstadium>, <https://politics.ld.admin.ch/political-rights/popular-initiative/phase/beim_bundesrat_haengig>, <https://politics.ld.admin.ch/political-rights/popular-initiative/phase/beim_parlament_haengig>, <https://politics.ld.admin.ch/political-rights/popular-initiative/phase/bedingter_rueckzug>, <https://politics.ld.admin.ch/political-rights/popular-initiative/phase/abstimmungsreif>, <https://politics.ld.admin.ch/political-rights/popular-initiative/phase/in_auszaehlung>))
+  )
+  FILTER (
+    (?dimension8 >= "1892-05-10"^^<http://www.w3.org/2001/XMLSchema#date>)
+  )
+  FILTER (
+    (?dimension8 <= "2026-06-23"^^<http://www.w3.org/2001/XMLSchema#date>)
+  )
+  OPTIONAL {
+    ?dimension0 <http://schema.org/name> ?dimension24_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension24_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension0 <http://schema.org/name> ?dimension24_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension24_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension0 <http://schema.org/name> ?dimension24_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension24_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension0 <http://schema.org/name> ?dimension24_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension24_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension0 <http://schema.org/name> ?dimension24_4 .
+    FILTER (
+      (LANG(?dimension24_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension24_0, ?dimension24_1, ?dimension24_2, ?dimension24_3, ?dimension24_4) AS ?dimension24)
+  OPTIONAL {
+    ?dimension7 <http://schema.org/name> ?dimension25_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension25_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension7 <http://schema.org/name> ?dimension25_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension25_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension7 <http://schema.org/name> ?dimension25_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension25_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension7 <http://schema.org/name> ?dimension25_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension25_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension7 <http://schema.org/name> ?dimension25_4 .
+    FILTER (
+      (LANG(?dimension25_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension25_0, ?dimension25_1, ?dimension25_2, ?dimension25_3, ?dimension25_4) AS ?dimension25)
+  OPTIONAL {
+    ?dimension10 <http://schema.org/name> ?dimension26_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension26_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension10 <http://schema.org/name> ?dimension26_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension26_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension10 <http://schema.org/name> ?dimension26_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension26_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension10 <http://schema.org/name> ?dimension26_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension26_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension10 <http://schema.org/name> ?dimension26_4 .
+    FILTER (
+      (LANG(?dimension26_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension26_0, ?dimension26_1, ?dimension26_2, ?dimension26_3, ?dimension26_4) AS ?dimension26)
+  OPTIONAL {
+    ?dimension14 <http://schema.org/name> ?dimension27_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension27_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension14 <http://schema.org/name> ?dimension27_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension27_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension14 <http://schema.org/name> ?dimension27_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension27_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension14 <http://schema.org/name> ?dimension27_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension27_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension14 <http://schema.org/name> ?dimension27_4 .
+    FILTER (
+      (LANG(?dimension27_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension27_0, ?dimension27_1, ?dimension27_2, ?dimension27_3, ?dimension27_4) AS ?dimension27)
+  OPTIONAL {
+    ?dimension15 <http://schema.org/name> ?dimension28_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension28_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension15 <http://schema.org/name> ?dimension28_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension28_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension15 <http://schema.org/name> ?dimension28_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension28_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension15 <http://schema.org/name> ?dimension28_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension28_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension15 <http://schema.org/name> ?dimension28_4 .
+    FILTER (
+      (LANG(?dimension28_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension28_0, ?dimension28_1, ?dimension28_2, ?dimension28_3, ?dimension28_4) AS ?dimension28)
+  OPTIONAL {
+    ?dimension17 <http://schema.org/name> ?dimension29_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension29_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension17 <http://schema.org/name> ?dimension29_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension29_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension17 <http://schema.org/name> ?dimension29_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension29_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension17 <http://schema.org/name> ?dimension29_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension29_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension17 <http://schema.org/name> ?dimension29_4 .
+    FILTER (
+      (LANG(?dimension29_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension29_0, ?dimension29_1, ?dimension29_2, ?dimension29_3, ?dimension29_4) AS ?dimension29)
+  OPTIONAL {
+    ?dimension18 <http://schema.org/name> ?dimension30_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension30_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension18 <http://schema.org/name> ?dimension30_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension30_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension18 <http://schema.org/name> ?dimension30_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension30_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension18 <http://schema.org/name> ?dimension30_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension30_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension18 <http://schema.org/name> ?dimension30_4 .
+    FILTER (
+      (LANG(?dimension30_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension30_0, ?dimension30_1, ?dimension30_2, ?dimension30_3, ?dimension30_4) AS ?dimension30)
+  OPTIONAL {
+    ?dimension19 <http://schema.org/name> ?dimension31_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension31_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension19 <http://schema.org/name> ?dimension31_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension31_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension19 <http://schema.org/name> ?dimension31_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension31_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension19 <http://schema.org/name> ?dimension31_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension31_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension19 <http://schema.org/name> ?dimension31_4 .
+    FILTER (
+      (LANG(?dimension31_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension31_0, ?dimension31_1, ?dimension31_2, ?dimension31_3, ?dimension31_4) AS ?dimension31)
+  OPTIONAL {
+    ?dimension20 <http://schema.org/name> ?dimension32_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension32_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension20 <http://schema.org/name> ?dimension32_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension32_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension20 <http://schema.org/name> ?dimension32_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension32_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension20 <http://schema.org/name> ?dimension32_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension32_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension20 <http://schema.org/name> ?dimension32_4 .
+    FILTER (
+      (LANG(?dimension32_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension32_0, ?dimension32_1, ?dimension32_2, ?dimension32_3, ?dimension32_4) AS ?dimension32)
+  OPTIONAL {
+    ?dimension21 <http://schema.org/name> ?dimension33_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension33_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension21 <http://schema.org/name> ?dimension33_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension33_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension21 <http://schema.org/name> ?dimension33_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension33_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension21 <http://schema.org/name> ?dimension33_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension33_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension21 <http://schema.org/name> ?dimension33_4 .
+    FILTER (
+      (LANG(?dimension33_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension33_0, ?dimension33_1, ?dimension33_2, ?dimension33_3, ?dimension33_4) AS ?dimension33)
+  OPTIONAL {
+    ?dimension22 <http://schema.org/name> ?dimension34_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension34_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension22 <http://schema.org/name> ?dimension34_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension34_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension22 <http://schema.org/name> ?dimension34_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension34_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension22 <http://schema.org/name> ?dimension34_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension34_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension22 <http://schema.org/name> ?dimension34_4 .
+    FILTER (
+      (LANG(?dimension34_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension34_0, ?dimension34_1, ?dimension34_2, ?dimension34_3, ?dimension34_4) AS ?dimension34)
+  OPTIONAL {
+    ?dimension23 <http://schema.org/name> ?dimension35_0 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension35_0), "de")
+    )
+  }
+  OPTIONAL {
+    ?dimension23 <http://schema.org/name> ?dimension35_1 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension35_1), "fr")
+    )
+  }
+  OPTIONAL {
+    ?dimension23 <http://schema.org/name> ?dimension35_2 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension35_2), "it")
+    )
+  }
+  OPTIONAL {
+    ?dimension23 <http://schema.org/name> ?dimension35_3 .
+    FILTER (
+      LANGMATCHES(LANG(?dimension35_3), "en")
+    )
+  }
+  OPTIONAL {
+    ?dimension23 <http://schema.org/name> ?dimension35_4 .
+    FILTER (
+      (LANG(?dimension35_4) = "")
+    )
+  }
+  BIND(COALESCE(?dimension35_0, ?dimension35_1, ?dimension35_2, ?dimension35_3, ?dimension35_4) AS ?dimension35)
+}

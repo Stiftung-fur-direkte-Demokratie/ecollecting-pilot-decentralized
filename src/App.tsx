@@ -1,7 +1,6 @@
 import { AppHeader } from './components/AppHeader'
 import { BottomNav } from './components/BottomNav'
 import { StatusBar } from './components/StatusBar'
-import { findBegehren } from './data/begehren'
 import { FaceOverlay } from './overlays/FaceOverlay'
 import { NoKanalDialog } from './overlays/NoKanalDialog'
 import { ReceiptDialog } from './overlays/ReceiptDialog'
@@ -30,7 +29,7 @@ const MIT_NAV: Screen[] = ['home', 'liste', 'profil']
 export function App({ config }: { config?: PrototypConfig }) {
   const ec = useEcollecting(config)
   const { state, actions, gemeindeLabel, gemeindeName } = ec
-  const aktuellesBegehren = findBegehren(state.currentId)
+  const aktuellesBegehren = ec.find(state.currentId)
 
   return (
     <div className="stage">
@@ -77,7 +76,7 @@ export function App({ config }: { config?: PrototypConfig }) {
         {state.dialog === 'face' && (
           <FaceOverlay text={state.faceText} gemeindeName={gemeindeName} />
         )}
-        {state.dialog === 'wortlaut' && (
+        {state.dialog === 'wortlaut' && aktuellesBegehren.wortlaut && (
           <WortlautSheet wortlaut={aktuellesBegehren.wortlaut} onClose={actions.closeDialog} />
         )}
         {state.dialog === 'receipt' && (

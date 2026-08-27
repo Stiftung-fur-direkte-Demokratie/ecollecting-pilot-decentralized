@@ -9,7 +9,11 @@ export function TypBadge({ typ }: { typ: BegehrenTyp }) {
   )
 }
 
-/** Beschriftet die Frist je nach Begehrenstyp. */
-export function fristLabel(typ: BegehrenTyp, frist: string): string {
-  return `${typ === 'initiative' ? 'Sammelfrist bis ' : 'Referendumsfrist bis '}${frist}`
+/**
+ * Beschriftet die Frist je nach Begehrenstyp. Ohne bekanntes Enddatum wird
+ * nur ausgewiesen, dass die Frist läuft – kein geschätztes Datum.
+ */
+export function fristLabel(typ: BegehrenTyp, frist?: string): string {
+  const art = typ === 'initiative' ? 'Sammelfrist' : 'Referendumsfrist'
+  return frist ? `${art} bis ${frist}` : `${art} läuft`
 }

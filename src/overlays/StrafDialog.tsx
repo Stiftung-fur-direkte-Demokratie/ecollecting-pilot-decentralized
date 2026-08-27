@@ -1,5 +1,4 @@
 import type { Ecollecting } from '../state/useEcollecting'
-import { findBegehren } from '../data/begehren'
 import { Icon } from '../components/Icon'
 import { useEscape } from './useEscape'
 
@@ -9,8 +8,8 @@ import { useEscape } from './useEscape'
  * ziehen. Danach folgt die Face-ID-Bestätigung.
  */
 export function StrafDialog({ ec }: { ec: Ecollecting }) {
-  const { state, actions, slider } = ec
-  const begehren = findBegehren(state.currentId)
+  const { state, actions, slider, find } = ec
+  const begehren = find(state.currentId)
   useEscape(actions.closeDialog)
 
   const prozent = state.slide * 100

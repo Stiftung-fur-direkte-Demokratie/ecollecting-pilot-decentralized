@@ -1,5 +1,4 @@
 import type { Ecollecting } from '../state/useEcollecting'
-import { BEGEHREN } from '../data/begehren'
 import type { Tab } from '../state/types'
 import { Icon } from '../components/Icon'
 import { TypBadge, fristLabel } from '../components/TypBadge'
@@ -15,9 +14,9 @@ const TABS: { key: Tab; label: string }[] = [
  * Datensparsamkeit ist Teil des Konzepts.
  */
 export function ListeScreen({ ec }: { ec: Ecollecting }) {
-  const { state, actions } = ec
+  const { state, actions, begehren: alleBegehren, quelle } = ec
 
-  const sichtbar = BEGEHREN.filter((b) => {
+  const sichtbar = alleBegehren.filter((b) => {
     if (state.tab === 'alle') return true
     return state.tab === 'ini' ? b.typ === 'initiative' : b.typ === 'referendum'
   })
@@ -64,7 +63,9 @@ export function ListeScreen({ ec }: { ec: Ecollecting }) {
       ))}
 
       <p className="screen-liste__source">
-        Amtliche Daten: LINDAS (Bund) · Beispieldaten des Pilotbetriebs
+        {quelle === 'lindas'
+          ? 'Amtliche Daten: LINDAS (Bund)'
+          : 'Amtliche Daten: LINDAS (Bund) · Beispieldaten des Pilotbetriebs'}
       </p>
     </div>
   )

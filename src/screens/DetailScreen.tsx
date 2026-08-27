@@ -1,13 +1,12 @@
 import type { Ecollecting } from '../state/useEcollecting'
-import { findBegehren } from '../data/begehren'
 import { Icon } from '../components/Icon'
 import { Note, StickyFooter, SuccessCard } from '../components/blocks'
 import { TypBadge } from '../components/TypBadge'
 
 /** Detail eines Volksbegehrens mit Wortlaut-Auszug und Unterstützen-Einstieg. */
 export function DetailScreen({ ec }: { ec: Ecollecting }) {
-  const { state, actions, gemeindeName } = ec
-  const begehren = findBegehren(state.currentId)
+  const { state, actions, gemeindeName, find } = ec
+  const begehren = find(state.currentId)
   const meta = state.supported[begehren.id]
   const empfangen = state.cert[begehren.id] === 'empfangen'
 
@@ -23,15 +22,29 @@ export function DetailScreen({ ec }: { ec: Ecollecting }) {
       </span>
       <h1 className="screen-detail__title">{begehren.titel}</h1>
 
-      <h2 className="screen-detail__h2">Wortlaut (Auszug)</h2>
-      <div className="panel screen-detail__wortlaut">
-        <p>
-          {begehren.auszug}{' '}
-          <button type="button" onClick={actions.openWortlaut} className="inlinelink">
-            Ganzen Text lesen
-          </button>
-        </p>
-      </div>
+      {begehren.auszug ? (
+        <>
+          <h2 className="screen-detail__h2">Wortlaut (Auszug)</h2>
+          <div className="panel screen-detail__wortlaut">
+            <p>
+              {begehren.auszug}{' '}
+              {begehren.wortlaut && (
+                <button type="button" onClick={actions.openWortlaut} className="inlinelink">
+                  Ganzen Text lesen
+                </button>
+              )}
+            </p>
+          </div>
+        </>
+      ) : (
+        // Die amtlichen LINDAS-Daten enthalten keinen Gesetzestext.
+        <div className="panel screen-detail__wortlaut">
+          <p>
+            Der vollständige Wortlaut ist im Bundesblatt veröffentlicht
+            {begehren.kennung ? ` (${begehren.kennung})` : ''}.
+          </p>
+        </div>
+      )}
 
       <Note>
         <strong>So funktioniert deine Unterstützung:</strong> Die Willensbekundung wird auf diesem

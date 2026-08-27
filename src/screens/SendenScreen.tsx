@@ -12,7 +12,7 @@ const HINTS = [
   'Unterschrift erfolgt auf deinem Gerät',
   'Der Bogen entspricht dem amtlichen Unterschriftenbogen',
   'Adressiert an deine Gemeinde – nur sie kann es öffnen',
-  'Zustellung über den Zugangsdienst und sedex',
+  'Verschlüsselt unterwegs zu deiner Gemeinde',
 ]
 
 /** Breiten der angedeuteten Textzeilen auf dem Unterschriftenbogen. */
